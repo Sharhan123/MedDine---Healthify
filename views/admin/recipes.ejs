@@ -19,7 +19,7 @@
     <ul class="navbar-nav w-100">
       <li class="nav-item w-100">
         <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-          <input type="text" class="form-control" id="productSearch" placeholder="Search products">
+          <input type="text" class="form-control" id="productSearch" placeholder="Search Recipes">
         </form>
       </li>
     </ul>
@@ -133,63 +133,7 @@
 </div>
 
 
-<div class="popUp-edit" style="display: none;">
-  <div><button class="btn btn-danger closeBtn-edit">close</button></div>
-  <div class="formDiv">
-      <h6 class="text-center">Edit the product  </h6>
-      <br>
-      
 
-
-      <form  method="post" onsubmit="editproduct()"  id="theEditForm" enctype="multipart/form-data">
-          <div class="mb-3">
-              <label class="form-label">Product Name</label>
-              <input type="text" class="form-control" name="pname" id="pname" value="" minlength="5" maxlength="50" required>
-          </div>
-          <p class="aerror" style=" color: red;"> </p>
-
-          <div class="mb-3">
-              <label class="form-label">Category</label>
-              <input type="text" class="form-control" name="category" id="category" value="" required>
-          </div>
-          <div class="mb-3">
-              <label class="form-label">Specs</label>
-              <input type="text" class="form-control" name="specs" id="specs" value="" required>
-          </div>
-          <div class="form-floating mb-3">
-              <textarea class="form-control" name="desc" placeholder="Leave a comment here" id="desc" ></textarea>
-              <label for="desc">Description</label>
-          </div>
-          <div class="mb-3">
-              <label class="form-label">Price</label>
-              <input type="number" name="price" id="price" class="form-control" value="" min="100" required>
-          </div>
-          <p class="perror" style=" color: red;"> </p>
-
-          <div class="mb-3">
-              <label class="form-label">Shipping cost</label>
-              <input type="number" name="scost" id="scost" class="form-control" value="" min="1" required>
-          </div>
-          <div class="mb-3">
-              <label class="form-label">Discount amount</label>
-              <input type="number" name="discount" id="discount" class="form-control" value="" min="1" required>
-          </div>
-          <p class="derror" style=" color: red;"> </p>
-
-          <div class="mb-3">
-              <label class="form-label">Total stoke</label>
-              <input type="number" name="stoke" id="stoke" class="form-control " value="" min="1" required>
-          </div>
-          <div class="mb-3">
-              <label class="form-label">Select the images</label>
-              <input type="file" class="form-control" id="editfileUpload" name="images" value="" multiple>
-          </div>
-          <div id="editImagePreview" ></div>
-          <button type="submit" class="btn btn-primary">Edit product</button>
-      </form>
-      
-  </div> 
-</div>
 
 
 <div class="popUp" style="display: none;">

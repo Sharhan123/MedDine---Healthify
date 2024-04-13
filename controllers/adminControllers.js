@@ -2,7 +2,7 @@ const adminData = require('../models/adminSchema')
 const multer = require('multer')
 const recipeData = require('../models/recipeSchema')
 const diseaseData = require('../models/diseaseSchema');
-const diseaseSchema = require('../models/diseaseSchema');
+const userData = require('../models/userSchema')
 let date = Date.now();
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -32,6 +32,7 @@ module.exports = {
     },
 
 
+
     login: async (req, res) => {
         try {
             const { email, password } = req.body
@@ -52,11 +53,22 @@ module.exports = {
         }
     }
     ,
-
+logout:async(req,res)=>{
+    try{
+        req.session.admin = null
+        res.redirect('/admin')
+    }catch(err){
+        console.log(err);
+    }
+}
+    ,
     getDashboard: async (req, res) => {
         try {
             if (req.session.admin) {
-                res.render('admin/dashboard')
+                const users = await userData.countDocuments()
+                const recipes = await recipeData.countDocuments()
+                const diseases = await diseaseData.countDocuments()
+                res.render('admin/dashboard',{users,recipes,diseases})
             } else {
                 res.redirect('/admin');
             }

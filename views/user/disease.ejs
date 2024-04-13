@@ -7,7 +7,7 @@
   <div class="s006">
     <form>
       <fieldset>
-        <legend>What are you looking for?</legend>
+        <legend>Get the diet plan for your disease </legend>
         <div class="inner-form">
           <div class="input-field">
             <button class="btn-search" type="button">
@@ -23,16 +23,9 @@
               <div id="searchResults"></div>
             </div>
 
-            <!-- <input id="search" type="text"  placeholder="Enter your disease"  /> -->
           </div>
         </div>
-        <div class="suggestion-wrap">
-          <span>New Arrivals</span>
-          <span>Ladies</span>
-          <span>Mens</span>
-          <span>Accessories</span>
-          <span>Sale</span>
-        </div>
+        
       </fieldset>
     </form>
   </div>
@@ -54,8 +47,6 @@
       }).then(response => response.json())
   .then(data => {
     if (data.Data) {
-      // Update your page using data.Data and data.session
-      // For example, display the results in your HTML
       console.log(data.Data);
       console.log(data.session);
 
@@ -94,7 +85,7 @@
         if(data.length < 1){
           searchResults.innerHTML = '<div>No disease found in our datas</div>';
         }else{
-          const resultsHTML = data.map(item => `<div class="search-suggestion">${item.disease}</div>`).join('');
+          const resultsHTML = data.map(item => `<div class="search-suggestion">${item}</div>`).join('');
           searchResults.innerHTML = resultsHTML;
 
           // Handle click event on search suggestions

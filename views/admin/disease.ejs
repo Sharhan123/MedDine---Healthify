@@ -109,16 +109,6 @@
                       <span class="truncate"><%= item.restricted %></span>
                     </td>
                     <td><a href="/admin/getView?id=<%= item._id%>"><button class="btn btn-secondary">view details</button></a></td> 
-                    <td> <button class="btn btn-primary openEditBtn" onclick="editClick({
-                        pid:`<%= item._id %>`,
-                        disease:`<%= item.disease %>`,
-                        category: `<%= item.category %>`,
-                        breakfast: `<%= item.breakfast %>`,
-                        lunch: `<%= item.lunch %>`,
-                        dinner: `<%=item.dinner %>`,
-                        images: `<%= item.Imagepath %>`
-                    })">Edit</button>
-                     </td>
                     <td><button class="btn btn-danger">Delete</button></td> 
                     
                     
@@ -221,7 +211,7 @@
                 <select class="form-label form-control" name="category">
                     
                         <option value="VEG" class="">VEG</option>
-                        <option value="NON VEG" class="">NON VEG</option>
+                        <option value="NON-VEG" class="">NON VEG</option>
                     
                 </select>
             </div>
@@ -298,7 +288,7 @@
       
                   <div class="mb-3">
                     <label class="form-label">Restricted Ingrediants</label>
-                    <input type="text" id="apname" style="color: white;" class="form-control" name="restricted" value="" required maxlength="50" minlength="5"> 
+                    <input type="text" id="apname" style="color: white;" class="form-control" name="restricted" value="" required > 
                 </div>
 
               <div class="mb-3">
