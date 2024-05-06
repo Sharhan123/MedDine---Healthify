@@ -249,7 +249,9 @@ module.exports = {
             session = req.session.user
             if (req.query.data) {
                 const regexPattern = new RegExp(req.query.data, 'i');
-                const Data = await diseaseData.findOne({ disease: { $regex: regexPattern }, category: req.session.user.type }).limit(1)
+                const data = await diseaseData.find({ disease: { $regex: regexPattern }, category: req.session.user.type })
+                const random =Math.floor( Math.random(3) * data.length) 
+                const Data = data[random]
                 res.render('user/dietPlan', { Data, session })
             } else {
                 return res.redirect('/')
@@ -259,8 +261,7 @@ module.exports = {
         }
         } catch (err) {
             console.log(err);
-        }
-    },
+}},
     postDisease: async (req, res) => {
         try {
             if (req.session.user) {

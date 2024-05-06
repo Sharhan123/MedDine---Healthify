@@ -155,7 +155,8 @@ logout:async(req,res)=>{
                 if (!req.files || req.files.length === 0) {
                     return res.status(400).json({ error: 'No files uploaded' });
                 }
-    
+                console.log(req.files,"files")
+                
                 const imagePaths = req.files.map(file => `/uploads/${file.filename}`);
                 console.log(imagePaths);
                 const breakfast = {
@@ -209,7 +210,17 @@ logout:async(req,res)=>{
         }catch(err){
             console.log(err);
         }
+    },
+    deleteDisease:async(req,res)=>{
+        try{
+            const id = req.query.id
+            const data = await diseaseData.findByIdAndDelete(id)
+            res.redirect('/admin/getdisease')
+        }catch(err){
+
+        }
     }
+    
 
 
 }
